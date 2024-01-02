@@ -1,0 +1,31 @@
+<!-- dashboard.component.html -->
+<div class="container">
+  <div class="heading-container">
+    <h2 class="heading">Daily Business</h2>
+  </div>
+  <div>
+    <h2 class="bank-figure">Bank Figure</h2>
+    <input type="text" [(ngModel)]="bankFigure" class="bank-figure" />
+  </div>
+  <br>
+  <div class="flex-container">
+    <div class="horizontal-box">
+      <h2>Deposit</h2>
+      <input type="text" [(ngModel)]="depositAmount" />
+    </div>
+
+    <div class="horizontal-box">
+      <h2>Advance</h2>
+      <input type="text" [(ngModel)]="advanceAmount" />
+    </div>
+  </div>
+  <br>
+  <div class="dropdown-container">
+    <select class="custom-dropdown">
+      <option value="" disabled selected>Select</option>
+      <option value="deposit">Deposit</option>
+      <option value="advance">Advance</option>
+    </select>
+  </div>
+  <div class="bottom-section" style="background-color: #103961;"></div>
+</div>

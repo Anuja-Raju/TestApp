@@ -1,0 +1,30 @@
+/* app.component.css */
+
+.app-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.light-red {
+  background-color: #bd4141; /* Light red color */
+  height: 45px; /* Adjust the height as needed */
+}
+
+.dark-blue {
+  background-color: #103961; /* Dark blue color */
+  height: 30px; /* Adjust the height as needed */
+}
+
+.light-blue {
+  background-color: #dfe8ef; /* Light blue color */
+  height: 40px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 100px;
+  height: 40px;
+  margin-left: 16px; /* Adjust the margin as needed */
+}
+
