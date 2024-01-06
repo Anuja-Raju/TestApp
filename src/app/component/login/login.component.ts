@@ -1,5 +1,3 @@
-// login.component.ts
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  selectedUserType: string = '';
   userId: string = '';
   password: string = '';
   showPassword: boolean = false;
@@ -39,29 +36,11 @@ export class LoginComponent {
   }
 
   validateCredentials(): boolean {
+    // Validate only the userId and password
+    const validUserId = this.userId.trim() !== '';  // Adjust the condition based on your requirements
+    const validPassword = this.password.trim() !== '';  // Adjust the condition based on your requirements
 
-    const officeCredentials1 = { userId: '23092', password: 'anujaraju', userType: 'office' };
-    const officeCredentials2 = { userId: '40120', password: 'adithya', userType: 'office' };
-    const officeCredentials3 = { userId: '98765', password: 'cyril', userType: 'office' };
-    const branchCredentials1 = { userId: '12345', password: '54321', userType: 'branch' };
-    const branchCredentials2 = { userId: '56789', password: '98765', userType: 'branch' };
-
-
-    switch (this.selectedUserType) {
-      case 'office':
-        return (
-          this.userId === officeCredentials1.userId && this.password === officeCredentials1.password ||
-          this.userId === officeCredentials2.userId && this.password === officeCredentials2.password ||
-          this.userId === officeCredentials3.userId && this.password === officeCredentials3.password
-        );
-      case 'branch':
-        return (
-          this.userId === branchCredentials1.userId && this.password === branchCredentials1.password ||
-          this.userId === branchCredentials2.userId && this.password === branchCredentials2.password
-        );
-      default:
-        return false;
-    }
+    return validUserId && validPassword;
   }
 
   generateCaptchaCode(length: number): string {
@@ -82,9 +61,8 @@ export class LoginComponent {
     this.captchaImage = this.generateCaptchaCode(this.captchaLength);
     this.enteredCaptcha = '';
   }
-  navigateToSignup() {
 
+  navigateToSignup() {
     this.router.navigate(['/signup']);
   }
 }
-
