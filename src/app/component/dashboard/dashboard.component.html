@@ -3,22 +3,24 @@
   <div class="heading-container">
     <h2 class="heading">Daily Business</h2>
   </div>
+  <br>
   <div>
     <h2 class="bank-figure">Bank Figure</h2>
-    <input type="text" [(ngModel)]="bankFigure" class="bank-figure" />
+    <div class="data-box">{{ bankFigure }}</div>
   </div>
-  <br>
+
   <div class="flex-container">
     <div class="horizontal-box">
-      <h2>Deposit</h2>
-      <input type="text" [(ngModel)]="depositAmount" />
+      <h2>   Deposit   </h2>
+      <div class="data-box">{{ depositAmount }}</div>
     </div>
 
     <div class="horizontal-box">
       <h2>Advance</h2>
-      <input type="text" [(ngModel)]="advanceAmount" />
+      <div class="data-box">{{ advanceAmount }}</div>
     </div>
   </div>
+  <br><br>
   <br>
   <div class="dropdown-container">
     <select class="custom-dropdown">
@@ -27,5 +29,5 @@
       <option value="advance">Advance</option>
     </select>
   </div>
-  <div class="bottom-section" style="background-color: #103961;"></div>
+  <!--<div class="bottom-section"></div>-->
 </div>
