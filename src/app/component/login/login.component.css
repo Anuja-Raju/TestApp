@@ -59,18 +59,6 @@ div select i {
   margin-left: 8px;
 }
 
-.login-button {
-  padding: 8px;
-  box-sizing: border-box;
-  position: absolute;
-  right: 20px;
-  top: 78%;
-  transform: translateY(-50%);
-  background-color: #103961;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
 
 .password-request {
   color: white;
@@ -116,5 +104,39 @@ label {
   right: 0;
   bottom: 10; /* Adjusted the bottom property */
   height: 100px;
+}
+
+.signup-button {
+  background-color: #103961;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+}
+
+
+.captcha-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.refresh-captcha {
+  margin-left: 10px;
+}
+
+.login-button {
+  background-color: #103961;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  margin-top: 10px;
+  margin-left: auto; 
+  margin-right: auto; 
+  display: block; 
 }
 
