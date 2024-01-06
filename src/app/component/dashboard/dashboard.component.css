@@ -6,24 +6,24 @@
   align-items: center;
   background-color: #bd4141;
   max-width: 500px;
-  margin: 40px auto; /* Adjust the margin-top value as needed */
+  margin: 40px auto; 
   padding: 20px;
   height: 500px;
 }
 
 .heading-container {
   background-color: #103961;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
-  width: 100%;
+  width: 88%;
   box-sizing: border-box;
-  margin-bottom: 15px; /* Add margin between heading and other content */
+  margin-bottom: 10px; 
 }
 
 .heading {
   color: white;
   margin: 0;
-  font-size: 20px; /* Set the font size as needed */
+  font-size: 20px; 
 }
 
 .flex-container {
@@ -32,7 +32,7 @@
 
 .horizontal-box {
   flex: 1;
-  padding: 15px;
+  padding: 25px;
   text-align: center;
   color: white;
 }
@@ -48,6 +48,19 @@
 
 .bottom-section {
   background-color: #103961;
-  height: 100%;
-  flex-grow: 1;
+  padding: 50px;
+  text-align: center;
+  width: 108%;
+  box-sizing: border-box;
+  margin-top: 85px;
+  height: 90px;
+}
+
+
+.data-box {
+  background-color: #fff; /* Box background color */
+  padding: 10px; /* Box padding */
+  margin: 15px 0; /* Box margin */
+  color: #333; /* Box text color */
+  width: 140px;
 }
