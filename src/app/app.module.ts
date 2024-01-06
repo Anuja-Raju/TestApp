@@ -11,6 +11,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { SignupComponent } from './component/signup/signup.component';
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     AppbarComponent,
     LoginComponent,
     DashboardComponent,
+    SignupComponent,
+
     
   ],
   imports: [
@@ -26,7 +31,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     BrowserAnimationsModule,
     MatToolbarModule,
     FormsModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    MatIconModule
   ],
   providers:[
     provideClientHydration()
