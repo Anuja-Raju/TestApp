@@ -10,4 +10,5 @@ export class DashboardComponent {
   bankFigure: string = '';
   depositAmount: string = '';
   advanceAmount: string = '';
+
 }
