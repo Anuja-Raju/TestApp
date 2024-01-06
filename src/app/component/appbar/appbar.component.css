@@ -16,15 +16,21 @@
 }
 
 .light-blue {
-  background-color: #dfe8ef; /* Light blue color */
+ 
   height: 40px; /* Adjust the height as needed */
   display: flex;
+  justify-content: flex-end; /* Align the items to the end (right) of the container */
   align-items: center;
+  padding-right: 16px; /* Add right padding to the light-blue bar */
 }
 
 .logo-image {
   width: 100px;
   height: 40px;
-  margin-left: 16px; /* Adjust the margin as needed */
 }
 
+.logout-button {
+  width: 60px;
+  background-color: #103961;
+  color: white;
+}
