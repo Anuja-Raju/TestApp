@@ -7,13 +7,6 @@
     </div>
     <h4>Login</h4>
     <div>
-      <div>
-        <select id="userType" name="userType" [(ngModel)]="selectedUserType" title="Select User Type">
-          <option value="" disabled selected>Select User Type</option>
-          <option value="office">Office User</option>
-          <option value="branch">Branch User</option>
-        </select>
-      </div>
     </div>
 
     <div class="user-id-input">
@@ -25,32 +18,34 @@
       <input type="{{ showPassword ? 'text' : 'password' }}" id="password" [(ngModel)]="password" placeholder="Password" />
       <i class="fas fa-eye" (click)="togglePassword()"></i>
     </div>
-
-    <div class="captcha-container">
-      <label for="captcha"></label>
-      <div class="captcha-input">
-        <input type="text" id="captcha" [(ngModel)]="enteredCaptcha" placeholder="Enter Captcha" />
-        <img [src]="'https://via.placeholder.com/150x40?text=' + captchaImage" alt="Captcha" />
-      </div>
-      <button class="refresh-captcha" (click)="refreshCaptcha()">
-        <i class="fas fa-sync-alt"></i>
-      </button>
-    </div>
-
+<div class="captcha-container">
+  <label for="captcha"></label>
+  <div class="captcha-input">
+    <input type="text" id="captcha" [(ngModel)]="enteredCaptcha" placeholder="Enter Captcha" />
+    <img [src]="'https://via.placeholder.com/150x40?text=' + captchaImage" alt="Captcha" />
+  </div>
+  <button class="refresh-captcha" (click)="refreshCaptcha()">
+    <i class="fas fa-sync-alt"></i>
+  </button>
+  
+  <button class='login-button' (click)="login()">Login</button>
+</div>
+<h4><p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p></h4>
     <div class="additional-info">
-      <p class="password-request">
-        <a href="mailto:esaf012024@gmail.com">Please send password to my mail id</a>
-      </p>
-      <button class='login-button' (click)="login()">Login</button>
-      <p>New User?</p>
-      <button class='signup-button' (click)="navigateToSignup()">Signup</button>
+     <p class="password-request">
+        <a> Forgot Password?             </a>
+        <a href="mailto:esaf012024@gmail.com"> Please send password to my mail id</a>
+      </p>     
+      <div class="signup-section">
+        <span>New User?            </span>
+        <button class='signup-button' (click)="navigateToSignup()">Signup</button>
+      </div>
     </div>
-    <div *ngIf="errorMessage" class="error-message"><h4>{{ errorMessage }}</h4></div>
 
     <br><br>
     <div class="bottom-section">
       <p> For Assistance Please Contact.</p>
-      <h5><p>Email: esaf012024&#64;gmail.com</p></h5>
+      <p>Email: esaf012024&#64;gmail.com</p>
     </div>
     <br><br>
   </div>
