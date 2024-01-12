@@ -1,66 +1,49 @@
-/* dashboard.component.css */
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #bd4141;
-  max-width: 500px;
-  margin: 40px auto; 
-  padding: 20px;
-  height: 500px;
-}
-
-.heading-container {
-  background-color: #103961;
-  padding: 20px;
+.dashboard-container {
   text-align: center;
-  width: 88%;
-  box-sizing: border-box;
-  margin-bottom: 10px; 
+  margin: 50px auto;
+
 }
 
-.heading {
-  color: white;
-  margin: 0;
-  font-size: 20px; 
+.snapshot-table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 30%;
 }
 
-.flex-container {
-  display: flex;
+.snapshot-table td {
+  border: 1px solid #541313;
+  padding: 8px;
+}
+.product-table-container {
+  width: 50%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
-.horizontal-box {
-  flex: 1;
-  padding: 25px;
-  text-align: center;
-  color: white;
+/* Style for product table */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.bank-figure {
-  color: white;
+.product-table th, .product-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
-.custom-dropdown {
-  width: 200px;
-  height: 25px;
+.product-table th {
+  background-color: #f2f2f2;
 }
 
-.bottom-section {
-  background-color: #103961;
-  padding: 50px;
-  text-align: center;
-  width: 108%;
-  box-sizing: border-box;
-  margin-top: 85px;
-  height: 90px;
+.product-table td {
+  background-color: #fff;
 }
 
+.product-table td.empty-column {
+  width: 20px; /* Adjust the width as needed */
+}
 
-.data-box {
-  background-color: #fff; /* Box background color */
-  padding: 10px; /* Box padding */
-  margin: 15px 0; /* Box margin */
-  color: #333; /* Box text color */
-  width: 140px;
+.plus-column {
+  width: 20px; /* Adjust the width as needed */
 }

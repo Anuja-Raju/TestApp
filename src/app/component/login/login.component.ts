@@ -24,26 +24,23 @@ export class LoginComponent {
   }
 
   login() {
-    const validCredentials = this.validateCredentials();
-    const validCaptcha = this.validateCaptcha();
-
-    if (validCredentials && validCaptcha) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.errorMessage = 'Invalid credentials. Please try again!';
-      this.refreshCaptcha();
-    }
+    // Only navigate to the next page without validation
+    this.router.navigate(['/dashboard']);
   }
 
-  validateCredentials(): boolean {
-    // Validate only the userId and password
-    const validUserId = this.userId.trim() !== '';  // Adjust the condition based on your requirements
-    const validPassword = this.password.trim() !== '';  // Adjust the condition based on your requirements
+  validateCaptcha(): boolean {
+    // Add your captcha validation logic here
+    return this.enteredCaptcha.toLowerCase() === this.captchaImage.toLowerCase();
+  }
 
-    return validUserId && validPassword;
+  refreshCaptcha() {
+    // Generate a new captcha
+    this.captchaImage = this.generateCaptchaCode(this.captchaLength);
+    this.enteredCaptcha = '';
   }
 
   generateCaptchaCode(length: number): string {
+    // Your captcha generation logic here
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let captcha = '';
     for (let i = 0; i < length; i++) {
@@ -51,15 +48,6 @@ export class LoginComponent {
       captcha += characters[index];
     }
     return captcha;
-  }
-
-  validateCaptcha(): boolean {
-    return this.enteredCaptcha.toLowerCase() === this.captchaImage.toLowerCase();
-  }
-
-  refreshCaptcha() {
-    this.captchaImage = this.generateCaptchaCode(this.captchaLength);
-    this.enteredCaptcha = '';
   }
 
   navigateToSignup() {
