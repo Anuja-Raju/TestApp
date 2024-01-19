@@ -14,6 +14,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { SignupComponent } from './component/signup/signup.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     DashboardComponent,
     SignupComponent,
-
-    
   ],
   imports: [
     BrowserModule,
@@ -32,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     FormsModule,
     NgxCaptchaModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
   ],
   providers:[
     provideClientHydration()
