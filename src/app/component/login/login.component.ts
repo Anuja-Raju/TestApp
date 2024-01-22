@@ -1,5 +1,8 @@
+// login.component.ts
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent {
   captchaImage: string = '';
   enteredCaptcha: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
     this.refreshCaptcha();
   }
 
@@ -24,23 +27,44 @@ export class LoginComponent {
   }
 
   login() {
-    const validCredentials = this.validateCredentials();
-    const validCaptcha = this.validateCaptcha();
-
-    if (validCredentials && validCaptcha) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.errorMessage = 'Invalid credentials. Please try again!';
-      this.refreshCaptcha();
+    // Add validation logic here
+     if (!this.userId || !this.password || !this.enteredCaptcha) {
+      this.errorMessage = 'Please fill in all fields.';
+      return;
     }
+
+    // Validate the captcha
+    if (this.enteredCaptcha.toLowerCase() !== this.captchaImage.toLowerCase()) {
+      this.errorMessage = 'Incorrect captcha. Please try again.';
+      return;
+    }
+
+    // Your login logic here
+    this.authService.Login({
+      "user_id": this.userId,
+      "password": this.password,
+      // Other fields if needed
+    }).subscribe({
+      next: data => {
+        console.log('Login successful:', data);
+        // Navigate to the dashboard after successful login
+        this.router.navigate(['/dashboard']);
+      },
+      error: err => {
+        console.error('Login failed:', err);
+        // Handle login error, display error message if needed
+        this.errorMessage = 'Invalid credentials. Please try again.';
+      },
+    });
   }
 
-  validateCredentials(): boolean {
-    // Validate only the userId and password
-    const validUserId = this.userId.trim() !== '';  // Adjust the condition based on your requirements
-    const validPassword = this.password.trim() !== '';  // Adjust the condition based on your requirements
+  validateCaptcha(): boolean {
+    return this.enteredCaptcha.toLowerCase() === this.captchaImage.toLowerCase();
+  }
 
-    return validUserId && validPassword;
+  refreshCaptcha() {
+    this.captchaImage = this.generateCaptchaCode(this.captchaLength);
+    this.enteredCaptcha = '';
   }
 
   generateCaptchaCode(length: number): string {
@@ -51,15 +75,6 @@ export class LoginComponent {
       captcha += characters[index];
     }
     return captcha;
-  }
-
-  validateCaptcha(): boolean {
-    return this.enteredCaptcha.toLowerCase() === this.captchaImage.toLowerCase();
-  }
-
-  refreshCaptcha() {
-    this.captchaImage = this.generateCaptchaCode(this.captchaLength);
-    this.enteredCaptcha = '';
   }
 
   navigateToSignup() {

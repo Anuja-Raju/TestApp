@@ -1,33 +1,46 @@
 <!-- dashboard.component.html -->
-<div class="container">
-  <div class="heading-container">
-    <h2 class="heading">Daily Business</h2>
-  </div>
-  <br>
-  <div>
-    <h2 class="bank-figure">Bank Figure</h2>
-    <div class="data-box">{{ bankFigure }}</div>
-  </div>
+<div class="dashboard-container">
 
-  <div class="flex-container">
-    <div class="horizontal-box">
-      <h2>   Deposit   </h2>
-      <div class="data-box">{{ depositAmount }}</div>
+  <!-- Daily Business Snapshot Header in the center -->
+  <h2 class="center-text">Daily Business Snapshot - {{ today }}</h2>
+
+  <!-- List of Tiles displayed horizontally -->
+  <div class="tile-list-horizontal">
+    <!-- Tile for Total Deposit -->
+    <div class="tile">
+      <h3>Total Deposits</h3>
+      <p>{{ totalDepositAmount | currency:'INR':'symbol':'1.2-2' }}</p>
     </div>
 
-    <div class="horizontal-box">
-      <h2>Advance</h2>
-      <div class="data-box">{{ advanceAmount }}</div>
+    <!-- Tile for Total Advance -->
+    <div class="tile">
+      <h3>Total Advances</h3>
+      <p>{{ totalAdvanceAmount | currency:'INR':'symbol':'1.2-2' }}</p>
+    </div>
+
+    <!-- Tile for Total Business -->
+    <div class="tile">
+      <h3>Total Business</h3>
+      <p>{{ totalBusinessAmount | currency:'INR':'symbol':'1.2-2' }}</p>
     </div>
   </div>
-  <br><br>
+
+  <!-- Dropdown for selecting deposit or advance -->
+ <!-- Dropdown for selecting deposit or advance -->
+ <div class="dropdown-container">
+  <select class="custom-dropdown" [(ngModel)]="selectedOption" (change)="onSelectChange()">
+    <option value="" disabled selected>Select</option>
+    <option value="deposit">Deposit</option>
+    <option value="advance">Advance</option>
+  </select>
   <br>
-  <div class="dropdown-container">
-    <select class="custom-dropdown">
-      <option value="" disabled selected>Select</option>
-      <option value="deposit">Deposit</option>
-      <option value="advance">Advance</option>
-    </select>
+  <div *ngIf="selectedOption === 'deposit'">
+    <!-- Include the deposit table here -->
+    <app-deposit></app-deposit>
   </div>
-  <!--<div class="bottom-section"></div>-->
+  <div *ngIf="selectedOption === 'advance'">
+    <!-- Include the deposit table here -->
+    <app-advance></app-advance>
+  </div>
+</div>
 </div>

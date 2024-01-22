@@ -1,66 +1,80 @@
-/* dashboard.component.css */
-
-.container {
+.dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #bd4141;
-  max-width: 500px;
-  margin: 40px auto; 
-  padding: 20px;
-  height: 500px;
-}
-
-.heading-container {
-  background-color: #103961;
-  padding: 20px;
   text-align: center;
-  width: 88%;
-  box-sizing: border-box;
-  margin-bottom: 10px; 
+  padding: 10px; /* Add padding to the container */
 }
 
-.heading {
-  color: white;
-  margin: 0;
-  font-size: 20px; 
-}
-
-.flex-container {
+.tile-list-horizontal {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.horizontal-box {
-  flex: 1;
-  padding: 25px;
+.center-text {
   text-align: center;
-  color: white;
+  padding-bottom: 50px;
 }
 
-.bank-figure {
+.tile {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
   color: white;
+  text-align: center;
+  border-radius: 28px;
+  background-color: #103961;
+}
+
+.tile:hover {
+  background-color: #a32424;
+  color: white; /* Text color when hovering */
 }
 
 .custom-dropdown {
-  width: 200px;
-  height: 25px;
+  margin-top: 10px;
 }
 
-.bottom-section {
-  background-color: #103961;
-  padding: 50px;
-  text-align: center;
-  width: 108%;
-  box-sizing: border-box;
-  margin-top: 85px;
-  height: 90px;
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-
-.data-box {
-  background-color: #fff; /* Box background color */
-  padding: 10px; /* Box padding */
-  margin: 15px 0; /* Box margin */
-  color: #333; /* Box text color */
-  width: 140px;
+.product-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
+
+.product-table th {
+  background-color: #f2f2f2;
+}
+
+.product-table td {
+  background-color: #fff;
+}
+
+.product-table td.empty-column {
+  width: 20px;
+}
+
+.plus-column {
+  width: 20px;
+}
+
+.dropdown-container{
+  padding-top: 50px;
+}
+@media only screen and (max-width: 600px) {
+  /* Adjust tile size for smaller screens */
+  .tile {
+    width: 120px;
+    padding: 15px;
+    height: 90px;
+    font-size: smaller;
+  }
+}
+

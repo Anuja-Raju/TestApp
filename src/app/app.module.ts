@@ -14,6 +14,11 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { SignupComponent } from './component/signup/signup.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { DepositComponent } from './component/deposit/deposit.component';
+import { AdvanceComponent } from './component/advance/advance.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     DashboardComponent,
     SignupComponent,
-
-    
+    DepositComponent,
+    AdvanceComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,10 +37,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     FormsModule,
     NgxCaptchaModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
   ],
   providers:[
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })
