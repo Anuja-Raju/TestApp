@@ -26,37 +26,41 @@ export class LoginComponent {
     this.showPassword = !this.showPassword;
   }
 
-  login() {
-    // Add validation logic here
-     if (!this.userId || !this.password || !this.enteredCaptcha) {
-      this.errorMessage = 'Please fill in all fields.';
-      return;
-    }
-
-    // Validate the captcha
-    if (this.enteredCaptcha.toLowerCase() !== this.captchaImage.toLowerCase()) {
-      this.errorMessage = 'Incorrect captcha. Please try again.';
-      return;
-    }
-
-    // Your login logic here
-    this.authService.Login({
-      "user_id": this.userId,
-      "password": this.password,
-      // Other fields if needed
-    }).subscribe({
-      next: data => {
-        console.log('Login successful:', data);
-        // Navigate to the dashboard after successful login
-        this.router.navigate(['/dashboard']);
-      },
-      error: err => {
-        console.error('Login failed:', err);
-        // Handle login error, display error message if needed
-        this.errorMessage = 'Invalid credentials. Please try again.';
-      },
-    });
+  login(){
+    this.router.navigate(['/dashboard']);
   }
+ 
+  // login() {
+  //   // Add validation logic here
+  //    if (!this.userId || !this.password || !this.enteredCaptcha) {
+  //     this.errorMessage = 'Please fill in all fields.';
+  //     return;
+  //   }
+
+  //   // Validate the captcha
+  //   if (this.enteredCaptcha.toLowerCase() !== this.captchaImage.toLowerCase()) {
+  //     this.errorMessage = 'Incorrect captcha. Please try again.';
+  //     return;
+  //   }
+
+  //   // Your login logic here
+  //   this.authService.Login({
+  //     "user_id": this.userId,
+  //     "password": this.password,
+  //     // Other fields if needed
+  //   }).subscribe({
+  //     next: data => {
+  //       console.log('Login successful:', data);
+  //       // Navigate to the dashboard after successful login
+  //       this.router.navigate(['/dashboard']);
+  //     },
+  //     error: err => {
+  //       console.error('Login failed:', err);
+  //       // Handle login error, display error message if needed
+  //       this.errorMessage = 'Invalid credentials. Please try again.';
+  //     },
+  //   });
+  // }
 
   validateCaptcha(): boolean {
     return this.enteredCaptcha.toLowerCase() === this.captchaImage.toLowerCase();

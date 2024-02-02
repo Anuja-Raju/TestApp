@@ -2,29 +2,72 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../../auth.service';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   selectedOption: string = '';
   today: string = '';
   totalDepositAmount: number = 0; // Example value, replace with actual data
   totalAdvanceAmount: number = 0; // Example value, replace with actual data
   totalBusinessAmount: number = 0; // Example value, replace with actual data
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.updateDate();
+
+    // Fetch total deposit and total advance amounts
+    this.authService.getTotalDeposit().subscribe(
+      (      data: { deposit_total: number; }[]) => {
+        this.totalDepositAmount = data[0].deposit_total;
+      },
+      (      error: any) => {
+        console.error('Error fetching total deposit:', error);
+      }
+    );
+
+    this.authService.getTotalAdvance().subscribe(
+      (      data: { advance_total: number; }[]) => {
+        this.totalAdvanceAmount = data[0].advance_total;
+      },
+      (      error: any) => {
+        console.error('Error fetching total advance:', error);
+      }
+    );
+
+    this.authService.getTotalDeposit().subscribe(
+      (data: { deposit_total: number }[]) => {
+        this.totalDepositAmount = data[0].deposit_total;
+    
+        // After fetching total deposit, fetch total advance
+        this.authService.getTotalAdvance().subscribe(
+          (advanceData: { advance_total: number }[]) => {
+            this.totalAdvanceAmount = advanceData[0].advance_total;
+    
+            // Calculate totalBusinessAmount
+            this.totalBusinessAmount = this.totalDepositAmount + this.totalAdvanceAmount;
+          },
+          (advanceError: any) => {
+            console.error('Error fetching total advance:', advanceError);
+          }
+        );
+      },
+      (error: any) => {
+        console.error('Error fetching total deposit:', error);
+      }
+    );
+
     // Update the date every day at midnight
     setInterval(() => {
       this.updateDate();
     }, 86400000); // 24 hours in milliseconds
   }
-
   updateDate() {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -47,3 +90,4 @@ export class DashboardComponent implements OnInit {
   }
   
 }
+

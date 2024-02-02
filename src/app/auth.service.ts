@@ -19,4 +19,13 @@ export class AuthService {
   Login(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}login`, data);
   }
+    // Add methods to fetch total deposit and total advance
+    getTotalDeposit(): Observable<any> {
+    return this.http.get(`${this.apiUrl}totaldeposit`);
+  }
+
+  getTotalAdvance(): Observable<any> {
+    return this.http.get(`${this.apiUrl}totalAdvance`);
+  }
 }
+ 
