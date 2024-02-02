@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   totalDepositAmount: number = 0; // Example value, replace with actual data
   totalAdvanceAmount: number = 0; // Example value, replace with actual data
   totalBusinessAmount: number = 0; // Example value, replace with actual data
+  filterText: string = ''; // property to store filter text
+  
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -87,6 +89,13 @@ export class DashboardComponent implements OnInit {
       this.router.navigate(['/advance']);
     }
     // Handle other options if needed
+  }
+
+  onFilterInputChange(): void {
+    // Implement your logic to filter based on the input
+    // For example, you can filter an array of items or perform an API request with the filterText
+    console.log('Filter Text:', this.filterText);
+    // Implement your logic here to filter or search based on this.filterText
   }
   
 }

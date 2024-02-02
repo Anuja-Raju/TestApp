@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { DepositComponent } from './component/deposit/deposit.component';
 import { AdvanceComponent } from './component/advance/advance.component';
+import { CustomerComponent } from './component/customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdvanceComponent } from './component/advance/advance.component';
     SignupComponent,
     DepositComponent,
     AdvanceComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,

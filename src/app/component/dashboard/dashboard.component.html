@@ -4,6 +4,8 @@
   <!-- Daily Business Snapshot Header in the center -->
   <h2 class="center-text">Daily Business Snapshot - {{ today }}</h2>
 
+  <input type="text" placeholder="Filter/Search" [(ngModel)]="filterText" (input)="onFilterInputChange()">
+
   <!-- List of Tiles displayed horizontally -->
   <div class="tile-list-horizontal">
     <!-- Tile for Total Deposit -->
@@ -24,7 +26,8 @@
       <p>{{ totalBusinessAmount | currency:'INR':'symbol':'1.2-2' }}</p>
     </div>
   </div>
-
+  
+<app-customer></app-customer>
   <!-- Dropdown for selecting deposit or advance -->
  <!-- Dropdown for selecting deposit or advance -->
  <div class="dropdown-container">

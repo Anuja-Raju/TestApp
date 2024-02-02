@@ -24,13 +24,14 @@
   width: 200px;
   color: white;
   text-align: center;
-  border-radius: 28px;
+  border-radius: 25px;
   background-color: #103961;
 }
 
 .tile:hover {
   background-color: #a32424;
   color: white; /* Text color when hovering */
+  transform: scale(1.1); 
 }
 
 .custom-dropdown {
@@ -38,7 +39,7 @@
 }
 
 .product-table {
-  width: 100%;
+  width: 60%;
   border-collapse: collapse;
   margin-top: 20px;
 }
@@ -68,6 +69,14 @@
 .dropdown-container{
   padding-top: 50px;
 }
+
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
 @media only screen and (max-width: 600px) {
   /* Adjust tile size for smaller screens */
   .tile {
@@ -75,6 +84,35 @@
     padding: 15px;
     height: 55px;
     font-size: smaller;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .tile-list-horizontal {
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .tile-list-horizontal::before,
+  .tile-list-horizontal::after {
+    content: '';
+    display: table;
+  }
+
+  .tile-list-horizontal::after {
+    clear: both;
+  }
+
+  .tile-list-horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .tile:hover {
+    background-color: #a32424;
+    color: white; /* Text color when hovering */
+    transform: scale(1.1); /* Enlarge the tile on hover */
   }
 }
 
