@@ -9,8 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://192.168.25.106:3000/'; // Replace with your actual backend API URL
+  private apiUrl = 'http://192.168.43.68:3000/'; 
   getCustomerSumPrevY: any;
+  getProductsForCategory: any;
 
   constructor(private http: HttpClient) {}
 
@@ -40,6 +41,9 @@ getPrevCustomerSum(): Observable<any> {
 }
 getNewCustomerSumQuery(): Observable<any> {
   return this.http.get(`${this.apiUrl}customerSumNew`);
+}
+getAdvanceDataSum(): Observable<any> {
+  return this.http.get(`${this.apiUrl}advanceDataSum`);
 }
 }
  
